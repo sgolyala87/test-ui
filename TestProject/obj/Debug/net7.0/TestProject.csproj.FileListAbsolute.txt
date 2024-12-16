@@ -452,3 +452,4 @@ C:\Users\sowmy\source\repos\test-ui\TestProject\obj\Debug\net7.0\TestProject.pdb
 C:\Users\sowmy\source\repos\test-ui\TestProject\obj\Debug\net7.0\TestProject.genruntimeconfig.cache
 C:\Users\sowmy\source\repos\test-ui\TestProject\obj\Debug\net7.0\ref\TestProject.dll
 C:\Users\sowmy\source\repos\test-ui\TestProject\bin\Debug\net7.0\Config\appsettings.json
+C:\Users\sowmy\source\repos\test-ui\TestProject\bin\Debug\net7.0\Setup\Logging\ConsoleLogger.cs
