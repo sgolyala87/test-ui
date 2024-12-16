@@ -11,7 +11,6 @@ namespace TestProject.Steps
     {
         private readonly ScenarioContext _scenarioContext;
         private readonly LoginPage _loginPage;
-        private readonly IBrowser _browser;
         private readonly IPage _page;
         private readonly Config _config;
 
