@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repo contains a test automation framework built with c#,Specflow and Playwright.It is designed to test the login functionality of sample web app(found online to test dummy application) by verifyinf successful login and validating error messages for invalid login attempts.
+This repo contains a test automation framework built with c#,Specflow and Playwright.It is designed to test the login functionality of sample web app(found online to test dummy application) by verifying successful login and validating error messages for invalid login attempts.
 
 ### Required software to run locally
 
