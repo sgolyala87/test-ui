@@ -25,7 +25,7 @@ Ensures robust test validation by asserting page states and error messages using
 - Specflow
 
 ## Project setup
-1.Clone the repo:
+1.Clone the repo in Visual studio to local:
 git clone https://github.com/sgolyala87/test-ui
 ## Project structure
 - Config/: Contains configuration files (e.g., appsettings.json).
