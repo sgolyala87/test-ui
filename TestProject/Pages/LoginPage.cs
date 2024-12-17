@@ -1,36 +1,49 @@
 ﻿using Microsoft.Playwright;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using TestProject.Setup;
 
 namespace TestProject.Pages
 {
-    public class LoginPage
+    public class LoginPage : BasePage
     {
-        private readonly IPage _page;
-        public LoginPage(IPage page)
+        private readonly ILocator _usernameInput;
+        private readonly ILocator _passwordInput;
+        private readonly ILocator _submitButton;
+        private readonly ILocator _errorMessage;
+        private readonly Config _config;
+
+        public LoginPage(IPage page) :base(page) 
         {
-            _page = page;
+            _usernameInput = page.Locator("#username");
+            _passwordInput = page.Locator("#password");
+            _submitButton = page.Locator("#submit");
+            _errorMessage = page.Locator("#error");
+            _config = ConfigReader.GetConfig();
         }
 
-        private const string UsernameInput = "#username";
-        private const string PasswordInput = "#password";
-        private const string SubmitButton = "#submit";
-        private const string ErrorMessage = "#error";
+        public async Task Load()
+        {
+            await Page.GotoAsync(_config.BaseUrl + "/practice-test-login");
+        }
 
-        
-        public async Task EnterUsername(string username) =>
-            await _page.FillAsync(UsernameInput, username.Trim());
+        public async Task EnterUsername(string username)
+        {
+            await Assertions.Expect(_usernameInput).ToBeVisibleAsync();
+            await _usernameInput.FillAsync(username.Trim());
+        }
 
-        public async Task EnterPassword(string password) =>
-            await _page.FillAsync(PasswordInput, password);
+        public async Task EnterPassword(string password)
+        {
+            await _passwordInput.FillAsync(password);
+        }
 
-        public async Task ClickSubmitButton() =>
-            await _page.ClickAsync(SubmitButton);
+        public async Task ClickSubmitButton()
+        {
+            await _submitButton.ClickAsync();
+        }
 
-        public async Task<string> GetErrorMessage() =>
-          await _page.TextContentAsync(ErrorMessage);
+        public async Task AssertErrorMessage(string message)
+        {
+            await Assertions.Expect(_errorMessage).ToHaveTextAsync(message);
+        }
     }
 }
