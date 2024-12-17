@@ -24,3 +24,8 @@ playwright install
 - Features/: Gherkin feature files for test scenarios.
 - Steps/: Step definitions implementing test logic.
 - Setup/: Playwright initialization, hooks, and configurations.
+
+## Run Tests
+- Build the solution in Visual Studio
+- From View tab in Visual studio - Select 'View Test Explorer'
+- Right click on TestProject.Features and Run 
