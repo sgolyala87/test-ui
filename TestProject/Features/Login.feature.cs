@@ -114,19 +114,19 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [Xunit.SkippableTheoryAttribute(DisplayName="Id_02 Failed Login with invalid credentials")]
+        [Xunit.SkippableTheoryAttribute(DisplayName="Id_02 Failed Login with invalid credentials - Verify error messages")]
         [Xunit.TraitAttribute("FeatureTitle", "Login")]
-        [Xunit.TraitAttribute("Description", "Id_02 Failed Login with invalid credentials")]
+        [Xunit.TraitAttribute("Description", "Id_02 Failed Login with invalid credentials - Verify error messages")]
         [Xunit.InlineDataAttribute("incorrectUser", "Password123", "Your username is invalid!", new string[0])]
         [Xunit.InlineDataAttribute("student", "incorrectpassword", "Your password is invalid!", new string[0])]
-        public void Id_02FailedLoginWithInvalidCredentials(string username, string password, string errormessage, string[] exampleTags)
+        public void Id_02FailedLoginWithInvalidCredentials_VerifyErrorMessages(string username, string password, string errormessage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Username", username);
             argumentsOfScenario.Add("Password", password);
             argumentsOfScenario.Add("Errormessage", errormessage);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Id_02 Failed Login with invalid credentials", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Id_02 Failed Login with invalid credentials - Verify error messages", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 12
 this.ScenarioInitialize(scenarioInfo);
 #line hidden

@@ -9,7 +9,7 @@ Scenario: Id_01 Successful login with valid credentials
 	Then I should redirected to the dashboard
 
 
-Scenario Outline: Id_02 Failed Login with invalid credentials
+Scenario Outline: Id_02 Failed Login with invalid credentials - Verify error messages
 	Given I navigate to login page
 	When I enter invalid <Username>  <Password>
 	And I click on Submit button

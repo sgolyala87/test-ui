@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repo contains a test automation framework built with c#,Specflow and Playwright.It is designed to test the login functionality of sample web app(found online to test dummy application) by verifyinf successful login and validating error messages for invalid login attempts.
+This repo contains a test automation framework built with c#,Specflow and Playwright.It is designed to test the login functionality of sample web app(found online to test dummy application) by verifying successful login and validating error messages for invalid login attempts.
 
 ### Required software to run locally
 
@@ -19,7 +19,8 @@ dotnet restore
 playwright install
 
 ## Project structure
-- Config: Contains configuration files, including appsettings.json, which stores settings like the application URL and login credentials.
-- Features: Includes Gherkin feature files describing the test cases.
-- Steps: Contains step definitions that implement the logic for feature file steps.
-- Setup: Framework setup files, such as Playwright initialization and configuration utilities.
+- Config/: Contains configuration files (e.g., appsettings.json).
+- Pages/: Page Object Models (POM) for interacting with web pages.
+- Features/: Gherkin feature files for test scenarios.
+- Steps/: Step definitions implementing test logic.
+- Setup/: Playwright initialization, hooks, and configurations.

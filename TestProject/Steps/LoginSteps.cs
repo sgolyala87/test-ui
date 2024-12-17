@@ -1,6 +1,4 @@
-﻿using Microsoft.Playwright;
-using System.Threading.Tasks;
-using TechTalk.SpecFlow;
+﻿using TechTalk.SpecFlow;
 using TestProject.Pages;
 using TestProject.Setup;
 
@@ -9,23 +7,24 @@ namespace TestProject.Steps
     [Binding]
     public class LoginSteps
     {
-        private readonly ScenarioContext _scenarioContext;
+        
         private readonly LoginPage _loginPage;
-        private readonly IPage _page;
+        private readonly DashboardPage _dashboardPage;
         private readonly Config _config;
 
-        public LoginSteps(ScenarioContext scenarioContext)
+        public LoginSteps(DashboardPage dashboardPage,LoginPage loginPage)
         {
-            _scenarioContext = scenarioContext;
-            _page = _scenarioContext["Page"] as IPage;
-            _loginPage = new LoginPage(_page);
+           
+            _loginPage = loginPage;
+            _dashboardPage = dashboardPage;
             _config = ConfigReader.GetConfig();
         }
 
         [Given(@"I navigate to login page")]
         public async Task GivenINavigateToLoginPage()
         {
-            await _page.GotoAsync(_config.BaseUrl + "/practice-test-login");
+            await _loginPage.Load();
+            
         }
 
         [When(@"I enter valid credentials")]
@@ -42,9 +41,9 @@ namespace TestProject.Steps
         }
 
         [Then(@"I should redirected to the dashboard")]
-        public void ThenIShouldRedirectedToTheDashboard()
+        public async Task ThenIShouldRedirectedToTheDashboard()
         {
-            Assert.Equal("https://practicetestautomation.com/logged-in-successfully/", _page.Url);
+            await _dashboardPage.AssertDashboardMessage();
         }
 
 
@@ -56,10 +55,10 @@ namespace TestProject.Steps
         }
 
         [Then(@"I should see an (.*)")]
-        public async void ThenIShouldSeeAnYourUsernameIsInvalid(string expectedErrorMessage)
+        public async Task ThenIShouldSeeAnYourUsernameIsInvalid(string expectedErrorMessage)
         {
-            string actualErrorMessage = await _loginPage.GetErrorMessage();
-            Assert.Equal(expectedErrorMessage, actualErrorMessage);
+            await _loginPage.AssertErrorMessage(expectedErrorMessage);
+            
         }
     }
 }
