@@ -8,7 +8,8 @@ This repo contains a test automation framework built with c#,Specflow and Playwr
 
 - [.NET 7.0 SDK]
 - Playwright CLI
-- Visual Studio 
+- Visual Studio
+- Specflow
 
 ## Project setup
 1.Clone the repo:
@@ -17,6 +18,7 @@ git clone https://github.com/sgolyala87/test-ui
 dotnet restore
 3.Install Playwright browsers
 playwright install
+4.Install Specflow 
 
 ## Project structure
 - Config/: Contains configuration files (e.g., appsettings.json).
